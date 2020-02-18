@@ -1,17 +1,17 @@
 package com.develogical;
 
 public class RecentlyUsedList {
-    private boolean isEmpty = true;
+    private String item;
 
     public boolean isEmpty() {
-        return isEmpty;
+        return item == null;
     }
 
     public void add(String item) {
-        isEmpty = false;
+        this.item = item;
     }
 
     public String get(int index) {
-        return "item";
+        return item;
     }
 }

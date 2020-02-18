@@ -24,4 +24,11 @@ public class RecentlyUsedListTest {
 		recentlyUsedList.add("item");
 		assertThat(recentlyUsedList.get(0), is("item"));
 	}
+
+	@Test
+	public void listShouldBeAbleToRetrieveAnotherThingFromTheList() {
+		RecentlyUsedList recentlyUsedList = new RecentlyUsedList();
+		recentlyUsedList.add("item2");
+		assertThat(recentlyUsedList.get(0), is("item2"));
+	}
 }
