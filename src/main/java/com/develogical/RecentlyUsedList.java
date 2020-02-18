@@ -10,4 +10,8 @@ public class RecentlyUsedList {
     public void add(String item) {
         isEmpty = false;
     }
+
+    public String get(int index) {
+        return "item";
+    }
 }
