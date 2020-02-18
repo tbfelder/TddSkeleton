@@ -31,4 +31,13 @@ public class RecentlyUsedListTest {
 		recentlyUsedList.add("item2");
 		assertThat(recentlyUsedList.get(0), is("item2"));
 	}
+
+	@Test
+	public void listShouldBeAbleToRetrieveAnOlderThingFromTheList() {
+		RecentlyUsedList recentlyUsedList = new RecentlyUsedList();
+		recentlyUsedList.add("item1");
+		recentlyUsedList.add("item2");
+		assertThat(recentlyUsedList.get(0), is("item2"));
+		assertThat(recentlyUsedList.get(1), is("item1"));
+	}
 }
