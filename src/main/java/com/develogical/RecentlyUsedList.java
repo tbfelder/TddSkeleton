@@ -11,6 +11,9 @@ public class RecentlyUsedList {
     }
 
     public void add(String item) {
+        if (items.contains(item)) {
+            items.remove(item);
+        }
         this.items.add(0, item);
     }
 

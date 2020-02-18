@@ -32,12 +32,46 @@ public class RecentlyUsedListTest {
 		assertThat(recentlyUsedList.get(0), is("item2"));
 	}
 
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void cannotGetItemThatDoesNotExist() {
+		RecentlyUsedList recentlyUsedList = new RecentlyUsedList();
+		recentlyUsedList.get(0);
+	}
+
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void cannotGetItemThatDoesNotExistBecauseItIsDuplicate() {
+		RecentlyUsedList recentlyUsedList = new RecentlyUsedList();
+		recentlyUsedList.add("item1");
+		recentlyUsedList.add("item1");
+		recentlyUsedList.get(1);
+	}
+
 	@Test
 	public void listShouldBeAbleToRetrieveAnOlderThingFromTheList() {
+		// also covers theMostRecentItemShouldBeFirstInTheList
 		RecentlyUsedList recentlyUsedList = new RecentlyUsedList();
 		recentlyUsedList.add("item1");
 		recentlyUsedList.add("item2");
 		assertThat(recentlyUsedList.get(0), is("item2"));
 		assertThat(recentlyUsedList.get(1), is("item1"));
+	}
+
+	@Test
+	public void itemsInTheListAreUnique() {
+		RecentlyUsedList recentlyUsedList = new RecentlyUsedList();
+		recentlyUsedList.add("item1");
+		recentlyUsedList.add("item2");
+		recentlyUsedList.add("item1");
+		assertThat(recentlyUsedList.get(0), is("item1"));
+		assertThat(recentlyUsedList.get(1), is("item2"));
+	}
+
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void itemsInTheListAreUniqueSoDropOffEnd() {
+		RecentlyUsedList recentlyUsedList = new RecentlyUsedList();
+		recentlyUsedList.add("item1");
+		recentlyUsedList.add("item2");
+		recentlyUsedList.add("item1");
+		recentlyUsedList.get(2);
 	}
 }
