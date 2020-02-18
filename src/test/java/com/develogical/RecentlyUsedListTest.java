@@ -10,4 +10,10 @@ public class RecentlyUsedListTest {
 	public void listShouldBeEmptyWhenInitialised() {
 		assertThat(new RecentlyUsedList().isEmpty(), is(true));
 	}
+	@Test
+	public void listShouldBeAbleToAddThingsToTheList() {
+		RecentlyUsedList recentlyUsedList = new RecentlyUsedList();
+		recentlyUsedList.add("item");
+		assertThat(recentlyUsedList.isEmpty(), is(false));
+	}
 }
