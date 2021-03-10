@@ -1,4 +1,4 @@
-package com.develogical;
+package com.oocode;
 
 public class Example {
 	public int answer() {
