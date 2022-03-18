@@ -19,7 +19,33 @@ public class ExampleTest {
 
 	@Test
 	public void canPerformAddition() {
-		NumeralsClass two = new NumeralsClass(2);
-		assertThat(two.RomanNumeral, is("II"));
+		assertThat(new NumeralsClass(2).asString(), is("II"));
+	}
+
+	@Test
+	public void canPerform() {
+		NumeralsClass nine = new NumeralsClass(9);
+		assertThat(nine.asString(), is("IX"));
+
+	}
+	@Test
+	public void canPerformA() {
+		NumeralsClass three = new NumeralsClass(3);
+		assertThat(three.asString(), is("III"));
+	}
+	@Test
+	public void canPerformB() {
+		NumeralsClass eight = new NumeralsClass(8);
+		assertThat(eight.asString(), is("VIII"));
+	}
+	@Test
+	public void canPerformC() {
+		NumeralsClass thirtyeight = new NumeralsClass(38);
+		assertThat(thirtyeight.asString(), is("XXXVIII"));
+	}
+	@Test
+	public void canPerformD() {
+		NumeralsClass fthirtyeight = new NumeralsClass(48);
+		assertThat(fthirtyeight.asString(), is("XLVIII"));
 	}
 }
